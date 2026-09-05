@@ -59,7 +59,7 @@ export async function POST(req: Request) {
 
     const user = {
   clerkId: id,
-  email: emailAddresses[0].emailAddress,
+  email: email_addresses[0].emailAddress,
   username: username || "",       // Added fallback just in case
   firstName: first_name || "",    // Fixes the type error
   lastName: last_name || "",      // Fixes the type error
