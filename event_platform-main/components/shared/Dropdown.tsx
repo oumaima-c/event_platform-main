@@ -56,7 +56,8 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
       </SelectTrigger>
       <SelectContent>
         {categories.length > 0 && categories.map((category) => (
-          <SelectItem key={category._id} value={category._id} className="select-item p-regular-14">
+          // FIX: Added .toString() to _id for key and value props
+          <SelectItem key={category._id.toString()} value={category._id.toString()} className="select-item p-regular-14">
             {category.name}
           </SelectItem>
         ))}
