@@ -8,8 +8,10 @@ const isPublicRoute = createRouteMatcher([
   '/api/uploadthing'
 ]);
 
-export default clerkMiddleware({
-  publicRoutes: isPublicRoute
+export default clerkMiddleware(async (auth, req) => {
+  if (!isPublicRoute(req)) {
+    await auth(); // This forces the user to sign in if they aren't already
+  }
 });
 
 export const config = {
